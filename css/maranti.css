@@ -1,0 +1,64 @@
+/* Complementos del contenido; el tema original se conserva en styles.css. */
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 100px; }
+.skip-link { position: fixed; top: -80px; left: 16px; z-index: 1100; background: white; padding: 12px; }
+.skip-link:focus { top: 12px; }
+.logo-placeholder { width: 160px; height: 160px; border: 2px dashed rgba(255,255,255,.75); border-radius: 50%; display: grid; place-content: center; }
+.product-card { overflow: hidden; background: white; border: 1px solid #dee2e6; }
+.product-placeholder { aspect-ratio: 4 / 3; background: #eaf5f2; color: #2c3e50; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: .5rem; }
+.product-number { font-family: Montserrat, sans-serif; font-size: 2.5rem; font-weight: 700; opacity: .45; }
+.season-stage { min-height: 280px; padding: 36px 20px; border: 2px dashed rgba(255,255,255,.7); overflow: hidden; }
+.season-decoration { display: inline-block; font-size: 3rem; margin-bottom: 12px; animation: season-turn 12s linear infinite; }
+[data-season="primavera"] .season-decoration { animation: season-float 3s ease-in-out infinite; }
+[data-season="verano"] .season-decoration { animation: season-turn 8s linear infinite; }
+[data-season="otono"] .season-decoration { animation: season-sway 4s ease-in-out infinite; }
+[data-season="invierno"] .season-decoration { animation: season-float 5s ease-in-out infinite; }
+.privacy { border: 1px solid #dee2e6; }
+.privacy summary { cursor: pointer; }
+#delicius-dax { background: #f8f9fa; }
+.btn:disabled { opacity: .7; cursor: not-allowed; }
+.nav-link.active { background: #1abc9c; color: white !important; }
+:focus-visible { outline: 3px solid #2c3e50; outline-offset: 4px; }
+.bg-secondary :focus-visible, .bg-primary :focus-visible, .footer :focus-visible { outline-color: white; }
+@keyframes season-turn { to { transform: rotate(360deg); } }
+@keyframes season-float { 50% { transform: translateY(-10px); } }
+@keyframes season-sway { 50% { transform: translateX(20px) rotate(20deg); } }
+@media (max-width: 575.98px) { .page-section-heading { font-size: 1.9rem; line-height: 1.2; } .masthead .masthead-heading { font-size: 3rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .season-decoration { animation: none !important; } }
+
+.maranti-logo { width: 160px; height: 160px; object-fit: contain; border-radius: 50%; background: white; }
+.product-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
+#productos-maranti .product-placeholder { aspect-ratio: 3 / 2; }
+
+.privacy-document { max-width: 900px; overflow-wrap: anywhere; }
+.privacy-document h2 { font-size: 1.65rem; margin: 2.5rem 0 1rem; }
+.privacy-document h2:first-child { margin-top: 0; }
+.privacy-document h3 { font-size: 1.25rem; margin-top: 1.5rem; }
+.privacy-document p, .privacy-document li { line-height: 1.75; }
+.privacy-document li { margin-bottom: .4rem; }
+
+.product-open { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: white; color: #2c3e50; text-align: left; cursor: pointer; }
+.product-open:hover { background: #eaf5f2; }
+.product-open:focus-visible { outline-offset: -4px; }
+.product-dialog { width: min(900px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 4rem 3rem 2rem; border: 0; border-radius: .75rem; color: #2c3e50; overflow-y: auto; overscroll-behavior: contain; }
+.product-dialog::backdrop { background: rgba(24, 37, 49, .75); }
+.product-dialog h2 { font-size: clamp(1.4rem, 4vw, 2.5rem); overflow-wrap: anywhere; }
+.product-dialog img { display: block; width: 100%; height: auto; max-height: 48vh; object-fit: contain; }
+.product-dialog-close { position: absolute; top: .5rem; right: 1rem; border: 0; background: transparent; color: #1abc9c; font-size: 2.5rem; line-height: 1; padding: .5rem; cursor: pointer; }
+body.product-dialog-open { overflow: hidden; }
+@media (max-width: 575.98px) { .product-dialog { padding: 4rem 1rem 1.5rem; } }
+
+.ballon-land-cover { display: block; width: 100%; height: auto; }
+
+.social-icons { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 1rem; }
+.social-icon { display: inline-flex; align-items: center; justify-content: center; width: 3.25rem; height: 3.25rem; border: 2px solid currentColor; border-radius: 50%; color: #2c3e50; }
+.social-icon svg { width: 1.5rem; height: 1.5rem; }
+a.social-icon:hover, a.social-icon:focus-visible { background: #2c3e50; color: white; text-decoration: none; }
+.social-icon-pending { color: #687780; cursor: default; }
+
+.season-effects { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 1020; }
+.season-particle { position: absolute; top: -50px; line-height: 1; opacity: .75; text-shadow: 0 1px 3px rgba(44,62,80,.5); animation: seasonal-fall var(--fall-time) linear var(--fall-delay) infinite; }
+@keyframes seasonal-fall { from { transform: translate3d(0,-40px,0) rotate(0); } to { transform: translate3d(var(--drift),calc(100vh + 100px),0) rotate(180deg); } }
+.season-motion-paused .season-particle, .season-motion-paused .season-decoration, .is-hidden-tab .season-particle { animation-play-state: paused; }
+body.product-dialog-open .season-effects { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .season-effects { display: none; } .season-particle { animation: none; } }
